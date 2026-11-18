@@ -110,3 +110,71 @@ The dataset contains the following columns:
 Data cleaning was performed using Python in Google Colab, with the Pandas library.
 
 The objective was to ensure that the dataset was consistent, reliable, and suitable for exploratory data analysis.
+
+### 3.1 Importing the Required Libraries
+
+The following Python libraries were imported:
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+```
+
+#### Purpose of the Libraries
+
+| Library | Purpose |
+|---|---|
+| Pandas | Data loading, manipulation, cleaning, and analysis. |
+| NumPy | Numerical operations and handling missing values. |
+| Matplotlib | Creating charts and visualizations. |
+
+
+### 3.2 Loading and Inspecting the Dataset
+
+The original dataset was loaded into Google Colab and stored in a Pandas DataFrame.
+
+The following inspection methods were used:
+
+```python
+Data.head()
+Data.shape
+Data.info()
+Data.describe()
+```
+
+#### Inspection results:
+
+-	Original dataset size: 271,116 rows and 15 columns.
+-	The dataset contained 10 object columns, 3 float columns, and 2 integer columns.
+-	The Age, Height, Weight, and Medal columns contained missing values.
+-	The remaining columns had no missing values at the initial inspection stage.
+  
+The head() method was used to preview the first five records, while shape, info(), and describe() helped examine the dataset structure and numerical distributions.
+
+### 3.3 Identifying and Removing Duplicate Records
+
+Duplicate records were investigated using:
+
+```python
+Data.duplicated().sum()
+```
+
+The initial inspection identified 1,385 duplicate rows. These were exact duplicate records, meaning the same complete record appeared more than once.
+
+To remove them, the following code was used:
+
+```python
+Data = Data.drop_duplicates()
+```
+
+The dataset was checked again:
+
+```python
+Data.duplicated().sum()
+```
+
+Result: 0 duplicate rows remained.
+
+After removing duplicates, the dataset contained 269,731 rows.
+Important decision: Repeated athlete IDs were not removed because they represent athletes who participated in multiple events or Olympic editions. The cleaning process targeted exact duplicate rows rather than repeated athlete identities.
