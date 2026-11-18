@@ -216,3 +216,94 @@ Data.isnull().sum() / len(df)) * 100
 | Height | 21.80% |
 | Weight | 22.81% |
 | Medal | 85.25% |
+
+
+### Observation:
+
+-	Age had a relatively small percentage of missing values.
+-	Height and Weight had higher percentages of missing values.
+-	Medal had the highest percentage of missing values because most athlete participation records did not result in a medal.
+
+  
+## 3.5 Investigating Age Outliers
+
+The Age column was examined to identify unusually high values.
+
+The descriptive statistics showed:
+
+-	Minimum age: 10
+-	Median age: 24
+-	Maximum age: 97
+-	
+The Interquartile Range (IQR) method was used to investigate potential outliers.
+The calculated upper boundary was 38.5 years. Values above this boundary were flagged for further investigation.
+Rather than automatically deleting these records, athletes aged 80 and above were examined.
+Seven historical records were identified, including athletes involved in Art Competitions.
+
+Examples included:
+
+### Age Outlier Investigation
+
+| Athlete | Age | Olympic Year |
+|---|---:|---:|
+| John Quincy Adams Ward | 97 | 1928 |
+| Winslow Homer | 96 | 1932 |
+| Thomas Cowperthwait Eakins | 88 | 1932 |
+| George Denholm Armour | 84 | 1948 |
+| Robert Tait McKenzie | 81 | 1948 |
+| Louis Tauzin | 81 | 1924 |
+| Max Liebermann | 80 | 1928 |
+
+#### Cleaning decision:
+
+The high-age records were retained because the investigation did not establish that they were incorrect. Their presence was associated with historical Art Competitions rather than necessarily representing data-entry errors.
+This prevented the unnecessary removal of potentially valid historical records.
+
+## 3.6 Handling Missing Values in Age, Height, and Weight
+
+After investigating the missing values and examining the numerical distributions, median imputation was selected to fill the missing numerical values.
+
+The median was preferred because it is less affected by extreme values than the mean.
+
+- Age
+  
+The overall median age was calculated as 24 years.
+
+Missing Age values were filled using:
+
+```python
+Data["Age"] = Data["Age"].fillna(Data["Age"].median())
+```
+
+- Height
+  
+Height was filled using the median grouped by Sex and Sport. This approach helped account for differences in typical height across athlete groups.
+Where the group median was unavailable, the overall Height median of 175 cm was used as a fallback.
+
+- Weight
+  
+Weight was also filled using the median grouped by Sex and Sport.
+Where the group median was unavailable, the overall Weight median of 70 kg was used as a fallback.
+
+The following approach was used for both Height and Weight:
+
+```python
+Data["Height"] = Data["Height"].fillna(
+    Data.groupby(["Sex", "Sport"])["Height"].transform("median")
+)
+```
+
+```python
+Data["Height"] = Data["Height"].fillna(175.0)
+```
+
+```python
+Data["Weight"] = Data["Weight"].fillna(
+    Data.groupby(["Sex", "Sport"])["Weight"].transform("median")
+)
+```
+
+```python
+Data["Weight"] = df["Weight"].fillna(70.0)
+```
+
