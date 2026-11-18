@@ -174,7 +174,45 @@ The dataset was checked again:
 Data.duplicated().sum()
 ```
 
+**Important decision:**
+
+Repeated athlete IDs were not removed because they represent athletes who participated in multiple events or Olympic editions. The cleaning process targeted exact duplicate rows rather than repeated athlete identities.
+
+
+### 3.4 Checking Missing Values
+
+Missing values were investigated using:
+
+```python
+Data.isnull().sum()
+```
+The following missing values were identified after duplicate removal:
+
 Result: 0 duplicate rows remained.
 
 After removing duplicates, the dataset contained 269,731 rows.
-Important decision: Repeated athlete IDs were not removed because they represent athletes who participated in multiple events or Olympic editions. The cleaning process targeted exact duplicate rows rather than repeated athlete identities.
+
+### Missing Values Summary
+
+| Column | Missing Values |
+|---|---:|
+| Age | 9,315 |
+| Height | 58,814 |
+| Weight | 61,527 |
+| Medal | 229,959 |
+| Other Columns | 0 |
+
+The percentage of missing values was also calculated:
+
+```python
+Data.isnull().sum() / len(df)) * 100
+```
+
+### Missing Values Percentage
+
+| Column | Missing Percentage |
+|---|---:|
+| Age | 3.45% |
+| Height | 21.80% |
+| Weight | 22.81% |
+| Medal | 85.25% |
