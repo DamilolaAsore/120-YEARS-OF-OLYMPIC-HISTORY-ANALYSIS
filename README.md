@@ -234,7 +234,7 @@ The descriptive statistics showed:
 -	Minimum age: 10
 -	Median age: 24
 -	Maximum age: 97
--	
+  
 The Interquartile Range (IQR) method was used to investigate potential outliers.
 The calculated upper boundary was 38.5 years. Values above this boundary were flagged for further investigation.
 Rather than automatically deleting these records, athletes aged 80 and above were examined.
@@ -307,3 +307,149 @@ Data["Weight"] = Data["Weight"].fillna(
 Data["Weight"] = df["Weight"].fillna(70.0)
 ```
 
+
+### Final Missing Values After Cleaning
+
+| Column | Missing Values After Cleaning |
+|---|---:|
+| Age | 0 |
+| Height | 0 |
+| Weight | 0 |
+
+This ensured that the three numerical columns had no remaining missing values.
+
+
+## 3.7 Creating the Medal_Status Column
+
+The original Medal column contained 229,959 missing values.
+These missing values were retained because they represented athlete participation records without a recorded medal.
+
+To make medal classification easier during analysis, a new column called Medal_Status was created.
+
+```python
+Data["Medal_Status"] = Data["Medal"].fillna("No Medal")
+```
+
+The resulting classification was:
+
+### Medal Status Distribution
+
+| Medal Status | Number of Records |
+|---|---:|
+| No Medal | 229,959 |
+| Gold | 13,369 |
+| Bronze | 13,295 |
+| Silver | 13,108 |
+| **Total** | **269,731** |
+
+#### Cleaning decision:
+
+The original Medal column was preserved, while the new Medal_Status column was added to distinguish medal-winning records from participation records without medals.
+This made it easier to analyze medal achievements without incorrectly treating missing medal values as data errors.
+
+
+## 3.8 Final Dataset Validation
+
+After completing the cleaning process, the cleaned dataset was stored in a new DataFrame:
+
+```python
+Data_clean = Data.copy()
+```
+
+The final dataset was checked to confirm its structure and quality.
+
+### Final Data Validation Results
+
+| Validation | Result |
+|---|---:|
+| Total Rows | 269,731 |
+| Total Columns | 16 |
+| Unique Athletes | 135,571 |
+| Remaining Exact Duplicate Rows | 0 |
+| Missing Age Values | 0 |
+| Missing Height Values | 0 |
+| Missing Weight Values | 0 |
+| Missing Medal Values | 229,959 |
+| Missing Medal_Status Values | 0 |
+
+Note: The 229,959 missing Medal values were intentionally retained because they represent athletes who did not win a medal.
+
+
+## 3.9 Data Cleaning Summary
+
+The cleaning process improved the dataset by removing exact duplicate records, addressing missing numerical values, investigating unusual age values, and introducing a new medal classification column.
+
+The final cleaned dataset contained 269,731 rows and 16 columns, with no remaining exact duplicate rows and no missing values in the numerical columns used for analysis.
+The dataset was therefore prepared for Exploratory Data Analysis (EDA).
+
+## 4. Exploratory Data Analysis (EDA)
+
+Exploratory Data Analysis (EDA) was performed to understand the structure of the cleaned dataset, identify important patterns, and generate insights before drawing conclusions.
+The analysis was conducted using Pandas for calculations and Matplotlib for data visualization.
+
+## 4.1 High-Level Key Performance Indicators (KPIs)
+
+The first stage of the analysis focused on extracting key metrics that provide an overview of Olympic participation and achievements across the dataset.
+
+The following KPIs were calculated:
+
+### Total Participation Records
+  
+```python
+total_participation_records = len(Data_clean)
+print("Total Participation Records:", total_participation_records)
+```
+
+### Unique Athletes
+
+```python
+unique_athletes = Data_clean["ID"].nunique()
+print("Unique Athletes:", unique_athletes)
+```
+
+### Olympic Games Editions
+
+```python
+olympic_games_editions = Data_clean["Games"].nunique()
+print("Olympic Games Editions:", olympic_games_editions)
+```
+
+### Number of Sports
+
+```python
+number_of_sports = Data_clean["Sport"].nunique()
+print("Number of Sports:", number_of_sports)
+```
+
+### Number of Events
+
+```python
+number_of_events = Data_clean["Event"].nunique()
+print("Number of Events:", number_of_events)
+```
+
+### National Olympic Committee Codes
+
+```python
+number_of_nocs = Data_clean["NOC"].nunique()
+print("National Olympic Committee Codes:", number_of_nocs)
+```
+
+### Total Medal Records
+
+```python
+total_medal_records = Data_clean["Medal"].notna().sum()
+print("Total Medal Records:", total_medal_records)
+```
+
+### Key Performance Indicators (KPIs)
+
+| KPI | Result |
+|---|---:|
+| Total Participation Records | 269,731 |
+| Unique Athletes | 135,571 |
+| Olympic Games Editions | 51 |
+| Number of Sports | 66 |
+| Number of Events (Distinct Event Values) | 765 |
+| National Olympic Committee Codes | 230 |
+| Total Medal Records | 39,772 |
