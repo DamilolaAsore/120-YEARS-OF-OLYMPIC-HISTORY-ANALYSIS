@@ -453,3 +453,88 @@ print("Total Medal Records:", total_medal_records)
 | Number of Events (Distinct Event Values) | 765 |
 | National Olympic Committee Codes | 230 |
 | Total Medal Records | 39,772 |
+
+
+### Key Observations:
+
+-	The cleaned dataset contains 269,731 athlete-event participation records.
+-	These records represent 135,571 unique athletes, showing that many athletes participated in multiple events or Olympic editions.
+-	The dataset covers 51 Olympic Games editions across the Summer and Winter seasons.
+-	A total of 66 sports and 765 distinct Event values were identified.
+-	The dataset contains 230 distinct NOC codes across its historical coverage.
+-	There are 39,772 athlete-event records with an awarded medal.
+  
+### Interpretation:
+
+These KPIs provide an overview of the scale and coverage of the dataset. They establish a foundation for examining gender representation, seasonal differences, and country-level participation and medal trends.
+
+
+## 4.2 Gender Participation Analysis
+
+The objective of this analysis was to understand gender representation in the Olympic Games and examine how female athlete participation has evolved over time.
+
+#### 4.2.1 Overall Participation by Gender
+
+The cleaned dataset was grouped by the Sex column to calculate the number of male and female participation records.
+
+Results:
+
+### Athlete Participation by Gender
+
+| Gender | Participation Records | Percentage |
+|---|---:|---:|
+| Male | 195,353 | 72.43% |
+| Female | 74,378 | 27.57% |
+| **Total** | **269,731** | **100%** |
+
+### Interpretation:
+
+Male athletes accounted for approximately 72.43% of all participation records, while female athletes accounted for 27.57%.
+This indicates that male participation was considerably higher across the historical Olympic records covered by the dataset.
+
+## 4.2.2 Female Participation Over Time
+
+The next analysis examined how the percentage of female participation changed across Olympic years.
+The percentage was calculated by dividing the number of female participation records in each year by the total participation records for that year, then multiplying by 100.
+
+Formula:
+
+```python
+Female Participation Percentage = (Female Participation Records / Total Participation Records) × 100
+```
+
+### Female Participation Over Time
+
+| Olympic Year | Female Participation |
+|---|---:|
+| 1900 | 1.74% |
+| 1952 | 17.97% |
+| 1996 | 36.34% |
+| 2000 | 39.30% |
+| 2008 | 42.76% |
+| 2016 | 45.46% |
+
+#### Key Findings:
+
+-	Female participation was very low in the early Olympic editions.
+-	In 1900, female athletes accounted for only 1.74% of participation records.
+-	By 2016, the percentage had increased to 45.46%.
+-	This represents an increase of 43.72 percentage points between 1900 and 2016.
+  
+#### Interpretation:
+
+The results indicate a substantial increase in female representation in the Olympic Games over time. Although male participation remained higher across the dataset, the growing percentage of female participation reflects a major change in gender representation throughout Olympic history.
+
+### 4.2.3 Visualization
+
+A line chart was used to illustrate the percentage of female participation across Olympic years.
+Chart type: Line Chart
+Reason for selection: A line chart is suitable for displaying changes over time and makes it easier to identify the overall direction and pattern of female participation.
+
+Visualization file: female_olympic_participation_over_time.png
+
+4.3 Summer vs Winter Olympic Games Comparison
+The objective of this analysis was to identify differences between the Summer and Winter Olympic Games in terms of athlete participation, participating National Olympic Committees (NOCs), and the variety of events offered.
+4.3.1 Athlete Participation Comparison
+The first comparison examined the number of athlete participation records and unique athletes across the two Olympic seasons.
+Results:
