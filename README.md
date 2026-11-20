@@ -623,6 +623,6 @@ It is important to note that these figures represent distinct combinations acros
 Visualization:
 A horizontal bar chart was used to compare the number of distinct Sport-Event combinations between the two Olympic seasons.
 
-
+![]()
 
 
