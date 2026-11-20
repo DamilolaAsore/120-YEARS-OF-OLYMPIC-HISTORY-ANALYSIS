@@ -533,8 +533,31 @@ Reason for selection: A line chart is suitable for displaying changes over time 
 
 Visualization file: female_olympic_participation_over_time.png
 
-4.3 Summer vs Winter Olympic Games Comparison
+
+### 4.3 Summer vs Winter Olympic Games Comparison
+
 The objective of this analysis was to identify differences between the Summer and Winter Olympic Games in terms of athlete participation, participating National Olympic Committees (NOCs), and the variety of events offered.
-4.3.1 Athlete Participation Comparison
+
+
+### 4.3.1 Athlete Participation Comparison
+
 The first comparison examined the number of athlete participation records and unique athletes across the two Olympic seasons.
 Results:
+
+| Olympic Season | Participation Records | Unique Athletes |
+|---|---:|---:|
+| Summer | 221,167 | 116,776 |
+| Winter | 48,564 | 18,958 |
+
+### Key Findings:
+•	The Summer Olympics recorded 221,167 participation records.
+•	The Winter Olympics recorded 48,564 participation records.
+•	The Summer Games had approximately 4.55 times as many participation records as the Winter Games.
+•	The Summer Games also recorded a higher number of unique athletes.
+
+### Interpretation:
+The Summer Olympics had substantially higher athlete participation than the Winter Olympics throughout the dataset's historical coverage. This difference is reflected in both the total participation records and the number of unique athletes.
+
+Visualization:
+A bar chart was used to compare the participation records and unique athlete counts between the two Olympic seasons.
+
