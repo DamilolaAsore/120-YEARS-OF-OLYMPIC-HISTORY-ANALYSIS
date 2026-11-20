@@ -564,4 +564,5 @@ The Summer Olympics had substantially higher athlete participation than the Wint
 
 Visualization:
 A bar chart was used to compare the participation records and unique athlete counts between the two Olympic seasons.
-![Summer vs Winter Olympic Participation](
+
+![Summer vs Winter Olympic Participation](Summer_vs_Winter_Participation.png)
