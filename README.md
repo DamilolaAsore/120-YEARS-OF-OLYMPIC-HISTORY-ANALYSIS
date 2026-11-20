@@ -594,9 +594,34 @@ A bar chart was used to compare the number of distinct NOCs represented in the S
 
 ![Number of NOCs by Olympic Season](Summer_vs_Winter_Countries.png)
 
+### 4.3.3 Comparison of Events
 
+The final comparison examined the variety of events across the Summer and Winter Olympic Games.
+To distinguish events associated with different sports, the analysis counted distinct Sport-Event combinations within each season.
 
+### Number of Distinct Sport-Event Combinations by Olympic Season
 
+| Olympic Season | Distinct Sport-Event Combinations |
+|---|---:|
+| Summer | 651 |
+| Winter | 119 |
+| **Total** | **770** |
+
+Note: This counts distinct combinations of Sport and Event, rather than distinct Event names alone.
+
+#### Key Findings:
+
+-	The Summer Olympics recorded 651 distinct Sport-Event combinations.
+-	The Winter Olympics recorded 119 distinct Sport-Event combinations.
+-	The Summer Games had a wider variety of Sport-Event combinations across the dataset.
+  
+#### Interpretation:
+
+The Summer Olympics covered a considerably wider range of Sport-Event combinations than the Winter Olympics during the period examined.
+It is important to note that these figures represent distinct combinations across all historical editions, not the number of events held in one particular Olympic Games edition.
+
+Visualization:
+A horizontal bar chart was used to compare the number of distinct Sport-Event combinations between the two Olympic seasons.
 
 
 
