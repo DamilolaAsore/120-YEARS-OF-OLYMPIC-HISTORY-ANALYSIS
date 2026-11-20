@@ -665,3 +665,9 @@ The first analysis identified the ten NOCs with the highest number of athlete pa
 
 The results show that the USA had the highest athlete participation across the Olympic history covered by the dataset. Several European NOCs also featured prominently among the ten highest participating NOCs.
 
+##### Visualization:
+
+A descending horizontal bar chart was used to display the top ten NOCs by participation records.
+
+Visualization file: top_10_nocs_participation.png
+
