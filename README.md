@@ -532,7 +532,9 @@ Chart type: Line Chart
 Reason for selection: A line chart is suitable for displaying changes over time and makes it easier to identify the overall direction and pattern of female participation.
 
 ##### Female Olympic Participation Over Time
-!
+
+
+![Female Olympic Participation Over Time](Female_Olympic_Participation_Over_Time.png)
 
 
 ### 4.3 Summer vs Winter Olympic Games Comparison
