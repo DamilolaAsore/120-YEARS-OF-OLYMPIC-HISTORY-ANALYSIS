@@ -669,5 +669,5 @@ The results show that the USA had the highest athlete participation across the O
 
 A descending horizontal bar chart was used to display the top ten NOCs by participation records.
 
-Visualization file: top_10_nocs_participation.png
+![Top 10 NOCs by Participation Records](Top_10_NOCS_By_Participation.png)
 
