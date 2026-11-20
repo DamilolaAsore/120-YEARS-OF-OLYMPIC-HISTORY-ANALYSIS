@@ -721,11 +721,13 @@ Medal records represent athlete-event records associated with medals, not necess
 
 The next analysis examined how athlete participation changed over time for the five leading NOCs by overall participation.
 The selected NOCs were:
-•	USA — United States
-•	FRA — France
-•	GBR — Great Britain
-•	ITA — Italy
-•	GER — Germany
+
+-	USA — United States
+-	FRA — France
+-	GBR — Great Britain
+-	ITA — Italy
+-	GER — Germany
+
 Participation records were grouped by Year, Season, and NOC to examine historical changes separately for the Summer and Winter Olympic Games.
 
 ### Key Findings:
@@ -754,7 +756,30 @@ Two line charts were created to examine participation trends separately:
 ![Winter Top 5 NOCs Participation Trends](Winter_Top_5_NOCS_Participation_Trends.png)
 
 
+## 4.4.4 Historical Medal Trends of the Top 5 NOCs
 
+The final country-level analysis examined how medal records changed over time for the same five NOCs.
+The analysis included only records where a medal was awarded. Medal records were grouped by Year, Season, and NOC.
+
+### Key Findings:
+
+-	The analysis produced 223 grouped records.
+-	In the 1896 Summer Olympics, Germany recorded 32 medal records, followed by the USA with 20, France with 11, and Great Britain with 9.
+-	In the 2016 Summer Olympics, the USA recorded the highest medal records among the five NOCs with 264.
+-	Germany followed with 159, Great Britain with 145, France with 96, and Italy with 72.
+  
+### Interpretation:
+
+The results demonstrate changes in medal records among the leading participating NOCs across Olympic history.
+Germany led the selected group in medal records in the 1896 Summer Olympics, while the USA led the group in 2016.
+This illustrates that medal performance rankings among leading NOCs have changed over time.
+
+### Visualizations:
+
+Two line charts were created to display medal trends separately for the Summer and Winter Olympic Games.
+
+-	summer_top_5_noc_medal_trends.png
+-	winter_top_5_noc_medal_trends.png
 
 
 
