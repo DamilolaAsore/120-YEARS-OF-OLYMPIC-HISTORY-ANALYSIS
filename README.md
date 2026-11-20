@@ -625,4 +625,43 @@ A horizontal bar chart was used to compare the number of distinct Sport-Event co
 
 ![Distinct Sport-Event Combinations by Olympic Season](Summer_vs_Winter_Events.png)
 
+### 4.3.4 Overall Comparison and Findings
+
+The comparison shows that the Summer Olympics had higher athlete participation, a greater number of participating NOCs, and a wider variety of Sport-Event combinations than the Winter Olympics.
+These differences demonstrate the larger participation scale and broader event coverage of the Summer Games across the historical period represented in the dataset.
+
+### 4.4 Country-Level Trends
+
+The objective of this analysis was to identify the National Olympic Committees (NOCs) with the highest athlete participation records, examine whether they also recorded the highest medal achievements, and investigate how their participation and medal records changed over time.
+
+#### 4.4.1 Top 10 NOCs by Athlete Participation
+
+The first analysis identified the ten NOCs with the highest number of athlete participation records across the dataset.
+
+### Results: Top 10 NOCs by Olympic Participation
+
+| Rank | NOC | Participation Records |
+|---:|:---:|---:|
+| 1 | USA | 18,604 |
+| 2 | FRA | 12,551 |
+| 3 | GBR | 12,115 |
+| 4 | ITA | 10,668 |
+| 5 | GER | 9,734 |
+| 6 | CAN | 9,680 |
+| 7 | JPN | 8,424 |
+| 8 | SWE | 8,291 |
+| 9 | AUS | 7,637 |
+| 10 | HUN | 6,552 |
+
+### Key Findings:
+
+-	The USA recorded the highest participation with 18,604 records.
+-	France ranked second with 12,551 records.
+-	Great Britain ranked third with 12,115 records.
+-	Germany and Canada ranked fifth and sixth, respectively, with only 54 records separating them.
+-	Hungary completed the top ten with 6,552 participation records.
+  
+#### Interpretation:
+
+The results show that the USA had the highest athlete participation across the Olympic history covered by the dataset. Several European NOCs also featured prominently among the ten highest participating NOCs.
 
