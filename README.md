@@ -783,4 +783,4 @@ Two line charts were created to display medal trends separately for the Summer a
 
 ![Summer Top 5 NOCs Medal Trends](Summer_Top_5_NOCS_Medal_Trends.png)
 
-![]()
+![Winter Top 5 NOCs Medal Trends](Winter_Top_5_NOCS_Medal_Trends.png)
