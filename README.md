@@ -661,13 +661,61 @@ The first analysis identified the ten NOCs with the highest number of athlete pa
 -	Germany and Canada ranked fifth and sixth, respectively, with only 54 records separating them.
 -	Hungary completed the top ten with 6,552 participation records.
   
-#### Interpretation:
+### Interpretation:
 
 The results show that the USA had the highest athlete participation across the Olympic history covered by the dataset. Several European NOCs also featured prominently among the ten highest participating NOCs.
 
-##### Visualization:
+### Visualization:
 
 A descending horizontal bar chart was used to display the top ten NOCs by participation records.
 
 ![Top 10 NOCs by Participation Records](Top_10_NOCS_By_Participation.png)
+
+## 4.4.2 Comparing Participation Records with Medal Records
+
+The next analysis examined whether the NOCs with the highest participation records also recorded the highest number of medals.
+The medal comparison was restricted to the same top ten NOCs identified in the participation analysis.
+
+### Results:
+
+| NOC | Participation Records | Medal Records |
+|:---:|---:|---:|
+| USA | 18,604 | 5,637 |
+| FRA | 12,551 | 1,767 |
+| GBR | 12,115 | 2,067 |
+| ITA | 10,668 | 1,637 |
+| GER | 9,734 | 2,165 |
+| CAN | 9,680 | 1,352 |
+| JPN | 8,424 | 913 |
+| SWE | 8,291 | 1,536 |
+| AUS | 7,637 | 1,320 |
+| HUN | 6,552 | 1,135 |
+
+### Key Findings:
+
+-	The USA ranked first in both participation and medal records.
+-	Germany ranked fifth in participation but second in medal records.
+-	Great Britain ranked third in both comparisons.
+-	France ranked second in participation but fourth in medal records.
+-	Japan ranked seventh in participation but tenth in medal records.
+-	Sweden ranked eighth in participation but seventh in medal records.
+  
+### Interpretation:
+
+The comparison indicates a general relationship between higher athlete participation and higher medal records. However, the rankings are not identical.
+Some NOCs recorded more medals relative to their participation rankings, while others had high participation but lower medal rankings.
+This suggests that a higher number of participation records does not automatically translate into the highest medal achievement.
+
+### Visualization:
+
+A clustered horizontal bar chart was created to compare participation records and medal records across the ten NOCs.
+
+
+
+
+
+
+
+
+
 
