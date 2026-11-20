@@ -749,7 +749,9 @@ Two line charts were created to examine participation trends separately:
    
 ### Visualization files:
 
-![]()
+![Summer Top 5 NOCs Participation Trends](Summer_Top_5_NOCS_Participation_Trends.png)
+
+![Winter Top 5 NOCs Participation Trends]()
 
 
 
