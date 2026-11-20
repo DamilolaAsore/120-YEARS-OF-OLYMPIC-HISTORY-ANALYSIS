@@ -592,6 +592,7 @@ This comparison uses distinct NOC codes across all editions of each season, rath
 Visualization:
 A bar chart was used to compare the number of distinct NOCs represented in the Summer and Winter Games.
 
+![Number of NOCs by Olympic Season](Summer_vs_Winter_Countries.png)
 
 
 
