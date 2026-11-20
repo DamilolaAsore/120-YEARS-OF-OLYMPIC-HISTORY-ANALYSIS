@@ -713,6 +713,43 @@ A clustered horizontal bar chart was created to compare participation records an
 ![Top 10 NOCs by Participation Records](Olympic_Participation_vs_Medals.png)
 
 
+#### Data consideration:
+
+Medal records represent athlete-event records associated with medals, not necessarily distinct physical medals or unique medal-winning athletes. Team events may generate multiple athlete medal records for a single event medal.
+
+## 4.4.3 Historical Participation Trends of the Top 5 NOCs
+
+The next analysis examined how athlete participation changed over time for the five leading NOCs by overall participation.
+The selected NOCs were:
+•	USA — United States
+•	FRA — France
+•	GBR — Great Britain
+•	ITA — Italy
+•	GER — Germany
+Participation records were grouped by Year, Season, and NOC to examine historical changes separately for the Summer and Winter Olympic Games.
+
+### Key Findings:
+
+-	The analysis produced 237 grouped records across the selected NOCs.
+-	Participation patterns were examined across different Olympic editions.
+-	In the 2016 Summer Olympics, the USA recorded the highest participation among the selected NOCs with 719 records.
+-	Germany followed with 536 records, France with 512, Great Britain with 478, and Italy with 399.
+  
+### Interpretation:
+
+The historical analysis provides a view of how participation among the leading NOCs changed across Olympic editions.
+Separating the Summer and Winter Games makes the comparison more meaningful because both seasons may have Olympic editions in the same calendar year.
+
+### Visualizations:
+
+Two line charts were created to examine participation trends separately:
+
+-	Summer Olympics participation trends.
+-	Winter Olympics participation trends.
+   
+### Visualization files:
+
+
 
 
 
