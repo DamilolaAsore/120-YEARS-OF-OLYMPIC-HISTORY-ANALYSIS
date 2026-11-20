@@ -531,7 +531,8 @@ A line chart was used to illustrate the percentage of female participation acros
 Chart type: Line Chart
 Reason for selection: A line chart is suitable for displaying changes over time and makes it easier to identify the overall direction and pattern of female participation.
 
-Visualization file: female_olympic_participation_over_time.png
+##### Female Olympic Participation Over Time
+!
 
 
 ### 4.3 Summer vs Winter Olympic Games Comparison
