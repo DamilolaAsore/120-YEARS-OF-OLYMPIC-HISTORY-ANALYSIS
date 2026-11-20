@@ -710,7 +710,7 @@ This suggests that a higher number of participation records does not automatical
 
 A clustered horizontal bar chart was created to compare participation records and medal records across the ten NOCs.
 
-
+![Top 10 NOCs by Participation Records](Olympic_Participation_vs_Medals.png)
 
 
 
