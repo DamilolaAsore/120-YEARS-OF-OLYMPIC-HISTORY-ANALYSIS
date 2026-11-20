@@ -784,3 +784,66 @@ Two line charts were created to display medal trends separately for the Summer a
 ![Summer Top 5 NOCs Medal Trends](Summer_Top_5_NOCS_Medal_Trends.png)
 
 ![Winter Top 5 NOCs Medal Trends](Winter_Top_5_NOCS_Medal_Trends.png)
+
+
+## 5. Key Findings, Conclusion and Recommendations
+
+### 5.1 Key Findings
+
+The analysis of the 120 Years of Olympic History dataset produced the following major findings:
+
+**1. Female Participation Increased Over Time**
+
+-	Male athletes accounted for 72.43% of total participation records, while female athletes accounted for 27.57%.
+-	Female participation increased from 1.74% in 1900 to 45.46% in 2016.
+-	This represents an increase of 43.72 percentage points.
+-	The findings indicate substantial growth in female representation throughout Olympic history.
+  
+**2. Summer Olympics Had Higher Participation Than Winter Olympics**
+
+-	Summer Olympics recorded 221,167 participation records, compared with 48,564 for Winter Olympics.
+-	Summer Olympics had 116,776 unique athletes, while Winter Olympics had 18,958.
+-	The Summer Games recorded 230 distinct NOC codes, compared with 119 for Winter Games.
+-	Summer Olympics also recorded 651 distinct Sport-Event combinations, compared with 119 for Winter Olympics.
+  
+**3. The USA Had the Highest Overall Athlete Participation**
+
+-	The USA ranked first among the top ten NOCs, with 18,604 participation records.
+-	France and Great Britain ranked second and third, respectively.
+-	Several European NOCs also appeared among the top ten participating NOCs.
+  
+**4. Higher Participation Did Not Always Mean a Higher Medal Ranking**
+
+-	The USA ranked first in both participation and medal records.
+-	Germany ranked fifth in participation but second in medal records.
+-	France ranked second in participation but fourth in medal records.
+-	These differences show that participation rankings and medal rankings were not always identical.
+  
+**5. Country Participation and Medal Records Changed Over Time**
+
+-	Historical line charts showed changes in participation and medal records among the five selected NOCs: USA, France, Great Britain, Italy, and Germany.
+-	Germany recorded the highest medal records among these five NOCs in the 1896 Summer Olympics, while the USA led in 2016.
+-	The results demonstrate changes in the relative participation and medal positions of leading NOCs across Olympic history.
+  
+## 5.2 Conclusion
+
+The analysis of the 120 Years of Olympic History dataset provided valuable insights into historical Olympic participation, gender representation, seasonal differences, and country-level performance.
+The findings show that female participation increased substantially over the years, reflecting a major change in gender representation at the Olympic Games.
+The comparison between the Summer and Winter Olympics revealed that the Summer Games had considerably higher athlete participation, more participating NOCs, and a wider variety of Sport-Event combinations across the dataset's historical coverage.
+At the country level, the USA emerged as the leading NOC in overall participation and medal records among the top ten participating NOCs. However, the comparison also showed that higher participation did not always correspond to a higher medal ranking.
+Finally, the historical trend analysis demonstrated that participation and medal records among leading NOCs changed across Olympic editions.
+
+## 5.3 Recommendations
+
+Based on the findings of the analysis, the following recommendations are proposed:
+
+-	Continue promoting female participation: The growth in female representation highlights the importance of maintaining initiatives that encourage equal opportunities for men and women in sports.
+-	Monitor participation across Olympic seasons: Future analyses should continue examining differences between Summer and Winter Games to understand changes in athlete participation and international representation.
+-	Evaluate country performance beyond participation: NOCs should consider both participation levels and medal achievements when assessing Olympic performance.
+-	Investigate historical changes in national performance: Further analysis can examine the factors behind changes in participation and medal records across different Olympic editions.
+-	Improve historical sports data documentation: Maintaining consistent records of athletes, events, NOC codes, and medal achievements will support more reliable historical comparisons.
+   
+
+
+
+
