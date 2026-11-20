@@ -528,8 +528,9 @@ The results indicate a substantial increase in female representation in the Olym
 ### 4.2.3 Visualization
 
 A line chart was used to illustrate the percentage of female participation across Olympic years.
-Chart type: Line Chart
-Reason for selection: A line chart is suitable for displaying changes over time and makes it easier to identify the overall direction and pattern of female participation.
+
+- Chart type: Line Chart
+- Reason for selection: A line chart is suitable for displaying changes over time and makes it easier to identify the overall direction and pattern of female participation.
 
 ##### Female Olympic Participation Over Time
 
