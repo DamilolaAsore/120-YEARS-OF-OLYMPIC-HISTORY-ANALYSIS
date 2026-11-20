@@ -566,3 +566,37 @@ Visualization:
 A bar chart was used to compare the participation records and unique athlete counts between the two Olympic seasons.
 
 ![Summer vs Winter Olympic Participation](Summer_vs_Winter_Participation.png)
+
+### 4.3.2 Comparison of Participating Countries (NOCs)
+
+The next analysis examined the number of distinct National Olympic Committee codes represented in the Summer and Winter Olympic Games.
+
+### Number of Countries by Olympic Season
+
+| Olympic Season | Number of NOCs |
+|---|---:|
+| Summer | 230 |
+| Winter | 119 |
+
+#### Key Findings:
+
+-	The Summer Olympics recorded 230 distinct NOC codes.
+-	The Winter Olympics recorded 119 distinct NOC codes.
+-	The Summer Games had 111 more distinct NOC codes than the Winter Games.
+  
+### Interpretation:
+
+The Summer Olympics had a wider range of participating NOCs across the historical period covered by the dataset.
+This comparison uses distinct NOC codes across all editions of each season, rather than counting participating NOCs in a single Olympic edition.
+
+Visualization:
+A bar chart was used to compare the number of distinct NOCs represented in the Summer and Winter Games.
+
+
+
+
+
+
+
+
+
