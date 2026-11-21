@@ -15,7 +15,8 @@ Analyzed 120 years of Olympic history using Python, exploring athlete participat
 -	Analysis Questions, Python Code and Results
 -	Visualizations and Interpretations
 -	Key Findings
--	Conclusion and Recommendations
+-	Conclusion
+-	 Recommendations
   
 
 
@@ -204,7 +205,6 @@ Data.isnull().sum()
 After removing duplicates, the dataset contained 269,731 rows.
 
 
-### Missing Values Summary
 
 | Column | Missing Values |
 |---|---:|
@@ -222,7 +222,7 @@ Data.isnull().sum() / len(df)) * 100
 ```
 
 
-### Missing Values Percentage
+**Results:**
 
 | Column | Missing Percentage |
 |---|---:|
@@ -251,10 +251,7 @@ The Age column was examined to identify unusually high values.
   
 The Interquartile Range (IQR) method was used to investigate potential outliers. The calculated upper boundary was 38.5 years. Values above this boundary were flagged for further investigation, rather than automatically deleting these records, athletes aged 80 and above were examined. Seven historical records were identified, including athletes involved in Art Competitions.
 
-**Examples included:**
 
-
-### Age Outlier Investigation
 
 | Athlete | Age | Olympic Year |
 |---|---:|---:|
@@ -318,7 +315,6 @@ Data["Weight"] = df["Weight"].fillna(70.0)
 ```
 
 
-### Final Missing Values After Cleaning
 
 | Column | Missing Values After Cleaning |
 |---|---:|
@@ -342,8 +338,6 @@ Data["Medal_Status"] = Data["Medal"].fillna("No Medal")
 **The resulting classification was:**
 
 
-### Medal Status Distribution
-
 | Medal Status | Number of Records |
 |---|---:|
 | No Medal | 229,959 |
@@ -359,8 +353,6 @@ The original Medal column was preserved, while the new Medal_Status column was a
 This made it easier to analyze medal achievements without incorrectly treating missing medal values as data errors.
 
 
-### Final Dataset Validation
-
 After completing the cleaning process, the cleaned dataset was stored in a new DataFrame:
 
 ```python
@@ -370,7 +362,7 @@ Data_clean = Data.copy()
 The final dataset was checked to confirm its structure and quality.
 
 
-### Final Data Validation Results
+**Final Data Validation Results:**
 
 | Validation | Result |
 |---|---:|
@@ -523,7 +515,6 @@ gender_summary
 
 **Results:**
 
-### Athlete Participation by Gender
 
 | Gender | Participation Records | Percentage |
 |---|---:|---:|
@@ -550,7 +541,6 @@ Female Participation Percentage = (Female Participation Records / Total Particip
 
 **Results:**
 
-### Female Participation Over Time
 
 | Olympic Year | Female Participation |
 |---|---:|
@@ -592,8 +582,11 @@ A line chart was used to illustrate the percentage of female participation acros
 ### Analysis Question 2: Compare and contrast the summer and the winter games
 
 **How many athletes compete?**
+
 **How many countries compete?**
+
 **How many events are there?**
+
 
 The objective of this analysis was to identify differences between the Summer and Winter Olympic Games in terms of athlete participation, participating National Olympic Committees (NOCs), and the variety of events offered. 
 
@@ -636,6 +629,9 @@ The Summer Olympics had substantially higher athlete participation than the Wint
 A bar chart was used to compare the participation records and unique athlete counts between the two Olympic seasons.
 
 
+### Summer vs Winter Olympic Participation
+
+
 ![Summer vs Winter Olympic Participation](Summer_vs_Winter_Participation.png)
 
 
@@ -673,10 +669,13 @@ season_countries
 - The Summer Olympics had a wider range of participating NOCs across the historical period covered by the dataset.
 - This comparison uses distinct NOC codes across all editions of each season, rather than counting participating NOCs in a single Olympic edition.
 
+
 **Visualization:**
 
 A bar chart was used to compare the number of distinct NOCs represented in the Summer and Winter Games.
 
+
+### Number of NOCs by Olympic Season
 
 ![Number of NOCs by Olympic Season](Summer_vs_Winter_Countries.png)
 
@@ -731,7 +730,11 @@ Note: This counts distinct combinations of Sport and Event, rather than distinct
 A horizontal bar chart was used to compare the number of distinct Sport-Event combinations between the two Olympic seasons.
 
 
+### Distinct Sport-Event Combinations by Olympic Season
+
+
 ![Distinct Sport-Event Combinations by Olympic Season](Summer_vs_Winter_Events.png)
+
 
 
 
@@ -745,8 +748,11 @@ A horizontal bar chart was used to compare the number of distinct Sport-Event co
 ### Analysis Question 3: Analyze and visualize country-level trends
 
 **Which countries send the most athletes to the olympics?**
+
 **Do they also tend to win the most medals?**
+
 **How have these trends changed over time?**
+
 
 The objective of this analysis was to identify the National Olympic Committees (NOCs) with the highest athlete participation records, examine whether they also recorded the highest medal achievements, and investigate how their participation and medal records changed over time.
 
@@ -803,6 +809,8 @@ The results show that the USA had the highest athlete participation across the O
 **Visualization:**
 
 A descending horizontal bar chart was used to display the top ten NOCs by participation records.
+
+### Top 10 NOCs by Participation Records
 
 
 ![Top 10 NOCs by Participation Records](Top_10_NOCS_By_Participation.png)
@@ -863,6 +871,7 @@ top_10_noc_summary
  **Visualization:**
 
 A clustered horizontal bar chart was created to compare participation records and medal records across the ten NOCs.
+
 
 
 ![Top 10 NOCs by Participation Records](Olympic_Participation_vs_Medals.png)
