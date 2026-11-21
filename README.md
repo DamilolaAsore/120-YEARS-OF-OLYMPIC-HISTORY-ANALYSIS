@@ -55,18 +55,14 @@ The analysis is limited to the information available in the supplied dataset. Co
 
 
 
-## Dataset Description
-
-
-### Dataset Description
+## Dataset Description, Dictionary and Structure
 
 The dataset used for this project is titled 120 Years of Olympic History. It contains historical records of athletes who participated in the modern Olympic Games from Athens 1896 to Rio 2016. Each row represents an athlete's participation in a particular Olympic event. An athlete may therefore appear in multiple rows if they participated in several events or Olympic editions. The dataset contains demographic information about athletes, their National Olympic Committee (NOC), the Olympic Games they participated in, their sports and events, and their medal achievements.
 
-### Dataset Structure
-
-**The original dataset contained 271,116 rows and 15 columns.**
+**Dataset Structure: The original dataset contained 271,116 rows and 15 columns.**
 
 After data inspection, duplicate removal, missing-value treatment, and the creation of an additional classification column, the cleaned dataset contained 269,731 rows and 16 columns.
+
 
 | Dataset Information | Details |
 |---|---:|
@@ -81,7 +77,7 @@ After data inspection, duplicate removal, missing-value treatment, and the creat
 | National Olympic Committee Codes | 230 |
 
 
-### Data Dictionary
+**Data Dictionary**
 
 **The dataset contains the following columns:**
 
@@ -492,15 +488,48 @@ These KPIs provide an overview of the scale and coverage of the dataset. They es
 
 ## Analysis Questions, Python Code, Results, Visualizations and Interpretations
 
-### Analysis 1: 
+### Analysis Question 1: Analyze and visualize the % of athletes who were female over time.
 
-Gender Participation Analysis
+**Gender Participation Analysis**
 
-The objective of this analysis was to understand gender representation in the Olympic Games and examine how female athlete participation has evolved over time.
+The objective of this analysis was to understand gender representation in the Olympic Games and examine how female athlete participation has evolved over time. The cleaned dataset was grouped by the Sex column to calculate the number of male and female participation records.
 
-**Overall Participation by Gender**
+**Python Code:**
 
-The cleaned dataset was grouped by the Sex column to calculate the number of male and female participation records.
+```python
+# Calculate participation records by gender
+gender_participation = df_clean["Sex"].value_counts()
+
+# Calculate percentage by gender
+gender_percentage = (
+    gender_participation / len(df_clean) * 100
+)
+
+# Create summary table
+gender_summary = pd.DataFrame({
+    "Gender": gender_participation.index.map({
+        "M": "Male",
+        "F": "Female"
+    }),
+    "Participation Records": gender_participation.values,
+    "Percentage": gender_percentage.values
+})
+
+# Add total row
+gender_summary.loc[len(gender_summary)] = [
+    "Total",
+    gender_participation.sum(),
+    100.00
+]
+
+# Format percentage
+gender_summary["Percentage"] = gender_summary["Percentage"].map(
+    lambda x: f"{x:.2f}%"
+)
+
+# Display results
+gender_summary
+```
 
 **Results:**
 
@@ -518,15 +547,18 @@ The cleaned dataset was grouped by the Sex column to calculate the number of mal
 Male athletes accounted for approximately 72.43% of all participation records, while female athletes accounted for 27.57%.
 This indicates that male participation was considerably higher across the historical Olympic records covered by the dataset.
 
-### Female Participation Over Time
+ **Female Participation Over Time**
 
 The next analysis examined how the percentage of female participation changed across Olympic years.
 The percentage was calculated by dividing the number of female participation records in each year by the total participation records for that year, then multiplying by 100.
 
+**Python Code:**
 
 ```python
 Female Participation Percentage = (Female Participation Records / Total Participation Records) × 100
 ```
+
+**Results:**
 
 ### Female Participation Over Time
 
@@ -564,14 +596,16 @@ A line chart was used to illustrate the percentage of female participation acros
 ![Female Olympic Participation Over Time](Female_Olympic_Participation_Over_Time.png)
 
 
-### Summer vs Winter Olympic Games Comparison
-
-The objective of this analysis was to identify differences between the Summer and Winter Olympic Games in terms of athlete participation, participating National Olympic Committees (NOCs), and the variety of events offered.
 
 
-### 4.3.1 Athlete Participation Comparison
 
-The first comparison examined the number of athlete participation records and unique athletes across the two Olympic seasons.
+### Analysis Question 2: Compare and contrast the summer and the winter games
+
+The objective of this analysis was to identify differences between the Summer and Winter Olympic Games in terms of athlete participation, participating National Olympic Committees (NOCs), and the variety of events offered. The first comparison examined the number of athlete participation records and unique athletes across the two Olympic seasons.
+
+
+
+
 Results:
 
 | Olympic Season | Participation Records | Unique Athletes |
