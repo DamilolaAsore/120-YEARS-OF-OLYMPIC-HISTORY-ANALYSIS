@@ -497,15 +497,10 @@ The objective of this analysis was to understand gender representation in the Ol
 **Python Code:**
 
 ```python
-# Calculate participation records by gender
-gender_participation = df_clean["Sex"].value_counts()
-
-# Calculate percentage by gender
+gender_participation = Data_clean["Sex"].value_counts()
 gender_percentage = (
-    gender_participation / len(df_clean) * 100
+    gender_participation / len(Data_clean) * 100
 )
-
-# Create summary table
 gender_summary = pd.DataFrame({
     "Gender": gender_participation.index.map({
         "M": "Male",
@@ -514,20 +509,15 @@ gender_summary = pd.DataFrame({
     "Participation Records": gender_participation.values,
     "Percentage": gender_percentage.values
 })
-
-# Add total row
 gender_summary.loc[len(gender_summary)] = [
     "Total",
     gender_participation.sum(),
     100.00
 ]
-
-# Format percentage
 gender_summary["Percentage"] = gender_summary["Percentage"].map(
     lambda x: f"{x:.2f}%"
 )
 
-# Display results
 gender_summary
 ```
 
@@ -601,65 +591,120 @@ A line chart was used to illustrate the percentage of female participation acros
 
 ### Analysis Question 2: Compare and contrast the summer and the winter games
 
-The objective of this analysis was to identify differences between the Summer and Winter Olympic Games in terms of athlete participation, participating National Olympic Committees (NOCs), and the variety of events offered. The first comparison examined the number of athlete participation records and unique athletes across the two Olympic seasons.
+**How many athletes compete?**
+**How many countries compete?**
+**How many events are there?**
+
+The objective of this analysis was to identify differences between the Summer and Winter Olympic Games in terms of athlete participation, participating National Olympic Committees (NOCs), and the variety of events offered. 
+
+#### How many athletes compete?
+
+The first comparison examined the number of athlete participation records and unique athletes across the two Olympic seasons.
 
 
+**Python Code:**
 
+```python
+season_summary = Data_clean.groupby("Season").agg(
+    Participation_Records=("ID", "count"),
+    Unique_Athletes=("ID", "nunique")
+)
+season_summary
+```
 
-Results:
+**Results:**
 
 | Olympic Season | Participation Records | Unique Athletes |
 |---|---:|---:|
 | Summer | 221,167 | 116,776 |
 | Winter | 48,564 | 18,958 |
 
-### Key Findings:
+
+ **Key Findings:**
+ 
 •	The Summer Olympics recorded 221,167 participation records.
 •	The Winter Olympics recorded 48,564 participation records.
 •	The Summer Games had approximately 4.55 times as many participation records as the Winter Games.
 •	The Summer Games also recorded a higher number of unique athletes.
 
-### Interpretation:
+ **Interpretation:**
+ 
 The Summer Olympics had substantially higher athlete participation than the Winter Olympics throughout the dataset's historical coverage. This difference is reflected in both the total participation records and the number of unique athletes.
 
-Visualization:
+**Visualization:**
+
 A bar chart was used to compare the participation records and unique athlete counts between the two Olympic seasons.
+
 
 ![Summer vs Winter Olympic Participation](Summer_vs_Winter_Participation.png)
 
-### 4.3.2 Comparison of Participating Countries (NOCs)
 
-The next analysis examined the number of distinct National Olympic Committee codes represented in the Summer and Winter Olympic Games.
 
-### Number of Countries by Olympic Season
+#### How many countries compete?
+
+Comparison of Participating Countries (NOCs), this analysis examined the number of distinct National Olympic Committee codes represented in the Summer and Winter Olympic Games.
+
+**Python Code:**
+
+```python
+season_countries = Data_clean.groupby("Season")["NOC"].nunique()
+season_countries = season_countries.reset_index()
+season_countries.columns = ["Olympic Season", "Number of NOCs"]
+season_countries
+```
+
+**Results:**
 
 | Olympic Season | Number of NOCs |
 |---|---:|
 | Summer | 230 |
 | Winter | 119 |
 
-#### Key Findings:
+
+**Key Findings:**
 
 -	The Summer Olympics recorded 230 distinct NOC codes.
 -	The Winter Olympics recorded 119 distinct NOC codes.
 -	The Summer Games had 111 more distinct NOC codes than the Winter Games.
   
-### Interpretation:
 
-The Summer Olympics had a wider range of participating NOCs across the historical period covered by the dataset.
-This comparison uses distinct NOC codes across all editions of each season, rather than counting participating NOCs in a single Olympic edition.
+**Interpretation:**
 
-Visualization:
+- The Summer Olympics had a wider range of participating NOCs across the historical period covered by the dataset.
+- This comparison uses distinct NOC codes across all editions of each season, rather than counting participating NOCs in a single Olympic edition.
+
+**Visualization:**
+
 A bar chart was used to compare the number of distinct NOCs represented in the Summer and Winter Games.
+
 
 ![Number of NOCs by Olympic Season](Summer_vs_Winter_Countries.png)
 
-### 4.3.3 Comparison of Events
 
-The final comparison examined the variety of events across the Summer and Winter Olympic Games.
-To distinguish events associated with different sports, the analysis counted distinct Sport-Event combinations within each season.
 
-### Number of Distinct Sport-Event Combinations by Olympic Season
+#### How many events are there?
+
+The final comparison examined the variety of events across the Summer and Winter Olympic Games associated with different sports, the analysis counted distinct Sport-Event combinations within each season.
+
+**Python Code:**
+
+```python
+season_events = Data_clean.groupby("Season").apply(
+    lambda x: x[["Sport", "Event"]].drop_duplicates().shape[0]
+)
+season_events = season_events.reset_index()
+season_events.columns = [
+    "Olympic Season",
+    "Distinct Sport-Event Combinations"
+]
+season_events.loc[len(season_events)] = [
+    "Total",
+    season_events["Distinct Sport-Event Combinations"].sum()
+]
+season_events
+```
+
+**Results:** 
 
 | Olympic Season | Distinct Sport-Event Combinations |
 |---|---:|
@@ -669,36 +714,65 @@ To distinguish events associated with different sports, the analysis counted dis
 
 Note: This counts distinct combinations of Sport and Event, rather than distinct Event names alone.
 
-#### Key Findings:
+
+**Key Findings:**
 
 -	The Summer Olympics recorded 651 distinct Sport-Event combinations.
 -	The Winter Olympics recorded 119 distinct Sport-Event combinations.
 -	The Summer Games had a wider variety of Sport-Event combinations across the dataset.
   
-#### Interpretation:
+**Interpretation:**
 
-The Summer Olympics covered a considerably wider range of Sport-Event combinations than the Winter Olympics during the period examined.
-It is important to note that these figures represent distinct combinations across all historical editions, not the number of events held in one particular Olympic Games edition.
+- The Summer Olympics covered a considerably wider range of Sport-Event combinations than the Winter Olympics during the period examined.
+- It is important to note that these figures represent distinct combinations across all historical editions, not the number of events held in one particular Olympic Games edition.
 
-Visualization:
+**Visualization:**
+
 A horizontal bar chart was used to compare the number of distinct Sport-Event combinations between the two Olympic seasons.
+
 
 ![Distinct Sport-Event Combinations by Olympic Season](Summer_vs_Winter_Events.png)
 
-### 4.3.4 Overall Comparison and Findings
 
-The comparison shows that the Summer Olympics had higher athlete participation, a greater number of participating NOCs, and a wider variety of Sport-Event combinations than the Winter Olympics.
-These differences demonstrate the larger participation scale and broader event coverage of the Summer Games across the historical period represented in the dataset.
 
-### 4.4 Country-Level Trends
+ **Overall Comparison and Findings:**
+
+- The comparison shows that the Summer Olympics had higher athlete participation, a greater number of participating NOCs, and a wider variety of Sport-Event combinations than the Winter Olympics.
+- These differences demonstrate the larger participation scale and broader event coverage of the Summer Games across the historical period represented in the dataset.
+
+
+
+### Analysis Question 3: Analyze and visualize country-level trends
+
+**Which countries send the most athletes to the olympics?**
+**Do they also tend to win the most medals?**
+**How have these trends changed over time?**
 
 The objective of this analysis was to identify the National Olympic Committees (NOCs) with the highest athlete participation records, examine whether they also recorded the highest medal achievements, and investigate how their participation and medal records changed over time.
 
-#### 4.4.1 Top 10 NOCs by Athlete Participation
+#### Which countries send the most athletes to the olympics?
 
 The first analysis identified the ten NOCs with the highest number of athlete participation records across the dataset.
 
-### Results: Top 10 NOCs by Olympic Participation
+**Python Code:**
+
+```python
+top_10_nocs = (
+    df_clean["NOC"]
+    .value_counts()
+    .head(10)
+    .reset_index()
+)
+top_10_nocs.columns = ["NOC", "Participation Records"]
+top_10_nocs.insert(
+    0,
+    "Rank",
+    range(1, len(top_10_nocs) + 1)
+)
+top_10_nocs
+```
+
+**Results:**
 
 | Rank | NOC | Participation Records |
 |---:|:---:|---:|
@@ -713,7 +787,8 @@ The first analysis identified the ten NOCs with the highest number of athlete pa
 | 9 | AUS | 7,637 |
 | 10 | HUN | 6,552 |
 
-### Key Findings:
+
+**Key Findings:**
 
 -	The USA recorded the highest participation with 18,604 records.
 -	France ranked second with 12,551 records.
@@ -721,22 +796,39 @@ The first analysis identified the ten NOCs with the highest number of athlete pa
 -	Germany and Canada ranked fifth and sixth, respectively, with only 54 records separating them.
 -	Hungary completed the top ten with 6,552 participation records.
   
-### Interpretation:
+**Interpretation:**
 
 The results show that the USA had the highest athlete participation across the Olympic history covered by the dataset. Several European NOCs also featured prominently among the ten highest participating NOCs.
 
-### Visualization:
+**Visualization:**
 
 A descending horizontal bar chart was used to display the top ten NOCs by participation records.
 
+
 ![Top 10 NOCs by Participation Records](Top_10_NOCS_By_Participation.png)
 
-## 4.4.2 Comparing Participation Records with Medal Records
 
-The next analysis examined whether the NOCs with the highest participation records also recorded the highest number of medals.
-The medal comparison was restricted to the same top ten NOCs identified in the participation analysis.
 
-### Results:
+#### Do they also tend to win the most medals?
+
+This analysis examined whether the NOCs with the highest participation records also recorded the highest number of medals. The medal comparison was restricted to the same top ten NOCs identified in the participation analysis.
+
+**Python Code:**
+
+```python
+noc_summary = Data_clean.groupby("NOC").agg(
+    Participation_Records=("ID", "count"),
+    Medal_Records=("Medal", lambda x: x.notna().sum())
+)
+top_10_noc_summary = (
+    noc_summary
+    .nlargest(10, "Participation_Records")
+    .reset_index()
+)
+top_10_noc_summary
+```
+
+**Results:**
 
 | NOC | Participation Records | Medal Records |
 |:---:|---:|---:|
@@ -751,7 +843,8 @@ The medal comparison was restricted to the same top ten NOCs identified in the p
 | AUS | 7,637 | 1,320 |
 | HUN | 6,552 | 1,135 |
 
-### Key Findings:
+
+**Key Findings:**
 
 -	The USA ranked first in both participation and medal records.
 -	Germany ranked fifth in participation but second in medal records.
@@ -760,27 +853,29 @@ The medal comparison was restricted to the same top ten NOCs identified in the p
 -	Japan ranked seventh in participation but tenth in medal records.
 -	Sweden ranked eighth in participation but seventh in medal records.
   
-### Interpretation:
+**Interpretation:**
 
-The comparison indicates a general relationship between higher athlete participation and higher medal records. However, the rankings are not identical.
-Some NOCs recorded more medals relative to their participation rankings, while others had high participation but lower medal rankings.
-This suggests that a higher number of participation records does not automatically translate into the highest medal achievement.
+- The comparison indicates a general relationship between higher athlete participation and higher medal records. However, the rankings are not identical.
+- Some NOCs recorded more medals relative to their participation rankings, while others had high participation but lower medal rankings.
+- This suggests that a higher number of participation records does not automatically translate into the highest medal achievement.
 
-### Visualization:
+
+ **Visualization:**
 
 A clustered horizontal bar chart was created to compare participation records and medal records across the ten NOCs.
+
 
 ![Top 10 NOCs by Participation Records](Olympic_Participation_vs_Medals.png)
 
 
-#### Data consideration:
+**Data consideration:** Medal records represent athlete-event records associated with medals, not necessarily distinct physical medals or unique medal-winning athletes. Team events may generate multiple athlete medal records for a single event medal.
 
-Medal records represent athlete-event records associated with medals, not necessarily distinct physical medals or unique medal-winning athletes. Team events may generate multiple athlete medal records for a single event medal.
 
-## 4.4.3 Historical Participation Trends of the Top 5 NOCs
+#### How have these trends changed over time?
 
-The next analysis examined how athlete participation changed over time for the five leading NOCs by overall participation.
-The selected NOCs were:
+This analysis examined how athlete participation changed over time for the five leading NOCs by overall participation.
+
+**The selected NOCs were:**
 
 -	USA — United States
 -	FRA — France
@@ -790,51 +885,133 @@ The selected NOCs were:
 
 Participation records were grouped by Year, Season, and NOC to examine historical changes separately for the Summer and Winter Olympic Games.
 
-### Key Findings:
+**Python Code:**
+
+top_5_nocs = (
+    Data_clean["NOC"]
+    .value_counts()
+    .head(5)
+    .index
+)
+top_5_participation = Data_clean[
+    Data_clean["NOC"].isin(top_5_nocs)
+]
+participation_trends = (
+    top_5_participation
+    .groupby(["Year", "Season", "NOC"])
+    .size()
+    .reset_index(name="Participation_Records")
+)
+participation_trends
+
+**Results:**
+
+| Year | Season | NOC | Participation Records |
+|---:|:---:|:---:|---:|
+| 1896 | Summer | FRA | 26 |
+| 1896 | Summer | GBR | 25 |
+| 1896 | Summer | GER | 94 |
+| 1896 | Summer | ITA | 1 |
+| 1896 | Summer | USA | 27 |
+| ... | ... | ... | ... |
+| 2016 | Summer | FRA | 512 |
+| 2016 | Summer | GBR | 478 |
+| 2016 | Summer | GER | 536 |
+| 2016 | Summer | ITA | 399 |
+| 2016 | Summer | USA | 719 |
+
+**Total Rows:** 237  
+**Total Columns:** 4
+
+
+**Key Findings:**
 
 -	The analysis produced 237 grouped records across the selected NOCs.
 -	Participation patterns were examined across different Olympic editions.
 -	In the 2016 Summer Olympics, the USA recorded the highest participation among the selected NOCs with 719 records.
 -	Germany followed with 536 records, France with 512, Great Britain with 478, and Italy with 399.
+
   
-### Interpretation:
+**Interpretation:**
 
-The historical analysis provides a view of how participation among the leading NOCs changed across Olympic editions.
-Separating the Summer and Winter Games makes the comparison more meaningful because both seasons may have Olympic editions in the same calendar year.
+- The historical analysis provides a view of how participation among the leading NOCs changed across Olympic editions.
+- Separating the Summer and Winter Games makes the comparison more meaningful because both seasons may have Olympic editions in the same calendar year.
 
-### Visualizations:
+**Visualizations:**
 
 Two line charts were created to examine participation trends separately:
 
 -	Summer Olympics participation trends.
 -	Winter Olympics participation trends.
    
-### Visualization files:
 
 ![Summer Top 5 NOCs Participation Trends](Summer_Top_5_NOCS_Participation_Trends.png)
+
 
 ![Winter Top 5 NOCs Participation Trends](Winter_Top_5_NOCS_Participation_Trends.png)
 
 
-## 4.4.4 Historical Medal Trends of the Top 5 NOCs
 
-The final country-level analysis examined how medal records changed over time for the same five NOCs.
-The analysis included only records where a medal was awarded. Medal records were grouped by Year, Season, and NOC.
+#### How have these trends changed over time?
 
-### Key Findings:
+This analysis examined how medal records changed over time for the same five NOCs. The analysis included only records where a medal was awarded. Medal records were grouped by Year, Season, and NOC.
+
+**Python Code:**
+
+```python
+top_5_nocs = (
+    Data_clean["NOC"]
+    .value_counts()
+    .head(5)
+    .index
+)
+top_5_medals = Data_clean[
+    (Data_clean["NOC"].isin(top_5_nocs)) &
+    (Data_clean["Medal"].notna())
+]
+medal_trends = (
+    top_5_medals
+    .groupby(["Year", "Season", "NOC"])
+    .size()
+    .reset_index(name="Medal_Records")
+)
+medal_trends
+```
+
+**Results:**
+
+| Year | Season | NOC | Medal Records |
+|---:|:---:|:---:|---:|
+| 1896 | Summer | FRA | 11 |
+| 1896 | Summer | GBR | 9 |
+| 1896 | Summer | GER | 32 |
+| 1896 | Summer | USA | 20 |
+| 1900 | Summer | FRA | 225 |
+| ... | ... | ... | ... |
+| 2016 | Summer | FRA | 96 |
+| 2016 | Summer | GBR | 145 |
+| 2016 | Summer | GER | 159 |
+| 2016 | Summer | ITA | 72 |
+| 2016 | Summer | USA | 264 |
+
+**Total Rows:** 223  
+**Total Columns:** 4
+
+
+**Key Findings:**
 
 -	The analysis produced 223 grouped records.
 -	In the 1896 Summer Olympics, Germany recorded 32 medal records, followed by the USA with 20, France with 11, and Great Britain with 9.
 -	In the 2016 Summer Olympics, the USA recorded the highest medal records among the five NOCs with 264.
 -	Germany followed with 159, Great Britain with 145, France with 96, and Italy with 72.
   
-### Interpretation:
+**Interpretation:**
 
-The results demonstrate changes in medal records among the leading participating NOCs across Olympic history.
-Germany led the selected group in medal records in the 1896 Summer Olympics, while the USA led the group in 2016.
-This illustrates that medal performance rankings among leading NOCs have changed over time.
+- The results demonstrate changes in medal records among the leading participating NOCs across Olympic history.
+- Germany led the selected group in medal records in the 1896 Summer Olympics, while the USA led the group in 2016.
+- This illustrates that medal performance rankings among leading NOCs have changed over time.
 
-### Visualizations:
+**Visualizations:**
 
 Two line charts were created to display medal trends separately for the Summer and Winter Olympic Games.
 
@@ -843,12 +1020,13 @@ Two line charts were created to display medal trends separately for the Summer a
 
 ![Summer Top 5 NOCs Medal Trends](Summer_Top_5_NOCS_Medal_Trends.png)
 
+
 ![Winter Top 5 NOCs Medal Trends](Winter_Top_5_NOCS_Medal_Trends.png)
 
 
-## 5. Key Findings, Conclusion and Recommendations
 
-### 5.1 Key Findings
+
+##  Key Findings 
 
 The analysis of the 120 Years of Olympic History dataset produced the following major findings:
 
@@ -884,16 +1062,20 @@ The analysis of the 120 Years of Olympic History dataset produced the following 
 -	Historical line charts showed changes in participation and medal records among the five selected NOCs: USA, France, Great Britain, Italy, and Germany.
 -	Germany recorded the highest medal records among these five NOCs in the 1896 Summer Olympics, while the USA led in 2016.
 -	The results demonstrate changes in the relative participation and medal positions of leading NOCs across Olympic history.
+
+
   
-## 5.2 Conclusion
+## Conclusion
 
-The analysis of the 120 Years of Olympic History dataset provided valuable insights into historical Olympic participation, gender representation, seasonal differences, and country-level performance.
-The findings show that female participation increased substantially over the years, reflecting a major change in gender representation at the Olympic Games.
-The comparison between the Summer and Winter Olympics revealed that the Summer Games had considerably higher athlete participation, more participating NOCs, and a wider variety of Sport-Event combinations across the dataset's historical coverage.
-At the country level, the USA emerged as the leading NOC in overall participation and medal records among the top ten participating NOCs. However, the comparison also showed that higher participation did not always correspond to a higher medal ranking.
-Finally, the historical trend analysis demonstrated that participation and medal records among leading NOCs changed across Olympic editions.
+- The analysis of the 120 Years of Olympic History dataset provided valuable insights into historical Olympic participation, gender representation, seasonal differences, and country-level performance.
+- The findings show that female participation increased substantially over the years, reflecting a major change in gender representation at the Olympic Games.
+- The comparison between the Summer and Winter Olympics revealed that the Summer Games had considerably higher athlete participation, more participating NOCs, and a wider variety of Sport-Event combinations across the dataset's historical coverage.
+- At the country level, the USA emerged as the leading NOC in overall participation and medal records among the top ten participating NOCs. However, the comparison also showed that higher participation did not always correspond to a higher medal ranking.
+- Finally, the historical trend analysis demonstrated that participation and medal records among leading NOCs changed across Olympic editions.
 
-## 5.3 Recommendations
+
+
+## Recommendations
 
 Based on the findings of the analysis, the following recommendations are proposed:
 
