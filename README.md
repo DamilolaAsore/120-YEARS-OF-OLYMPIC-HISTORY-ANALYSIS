@@ -573,6 +573,9 @@ A line chart was used to illustrate the percentage of female participation acros
 ### Female Olympic Participation Over Time
 
 
+
+
+
 ![Female Olympic Participation Over Time](Female_Olympic_Participation_Over_Time.png)
 
 
@@ -632,6 +635,8 @@ A bar chart was used to compare the participation records and unique athlete cou
 ### Summer vs Winter Olympic Participation
 
 
+
+
 ![Summer vs Winter Olympic Participation](Summer_vs_Winter_Participation.png)
 
 
@@ -676,6 +681,8 @@ A bar chart was used to compare the number of distinct NOCs represented in the S
 
 
 ### Number of NOCs by Olympic Season
+
+
 
 ![Number of NOCs by Olympic Season](Summer_vs_Winter_Countries.png)
 
@@ -813,6 +820,7 @@ A descending horizontal bar chart was used to display the top ten NOCs by partic
 ### Top 10 NOCs by Participation Records
 
 
+
 ![Top 10 NOCs by Participation Records](Top_10_NOCS_By_Participation.png)
 
 
@@ -873,6 +881,9 @@ top_10_noc_summary
 A clustered horizontal bar chart was created to compare participation records and medal records across the ten NOCs.
 
 
+### Olympic_Participation_vs_Medals
+
+
 
 ![Top 10 NOCs by Participation Records](Olympic_Participation_vs_Medals.png)
 
@@ -896,6 +907,7 @@ Participation records were grouped by Year, Season, and NOC to examine historica
 
 **Python Code:**
 
+```python
 top_5_nocs = (
     Data_clean["NOC"]
     .value_counts()
@@ -912,6 +924,8 @@ participation_trends = (
     .reset_index(name="Participation_Records")
 )
 participation_trends
+```
+
 
 **Results:**
 
@@ -953,8 +967,15 @@ Two line charts were created to examine participation trends separately:
 -	Summer Olympics participation trends.
 -	Winter Olympics participation trends.
    
+### Summer Top 5 NOCs Participation Trends
+
+
 
 ![Summer Top 5 NOCs Participation Trends](Summer_Top_5_NOCS_Participation_Trends.png)
+
+
+
+### Winter Top 5 NOCs Participation Trends
 
 
 ![Winter Top 5 NOCs Participation Trends](Winter_Top_5_NOCS_Participation_Trends.png)
@@ -1027,7 +1048,14 @@ Two line charts were created to display medal trends separately for the Summer a
 -	summer_top_5_noc_medal_trends.png
 -	winter_top_5_noc_medal_trends.png
 
+
+### Summer Top 5 NOCs Medal Trends
+
+
 ![Summer Top 5 NOCs Medal Trends](Summer_Top_5_NOCS_Medal_Trends.png)
+
+
+### Winter Top 5 NOCs Medal Trends
 
 
 ![Winter Top 5 NOCs Medal Trends](Winter_Top_5_NOCS_Medal_Trends.png)
@@ -1086,7 +1114,7 @@ The analysis of the 120 Years of Olympic History dataset produced the following 
 
 ## Recommendations
 
-Based on the findings of the analysis, the following recommendations are proposed:
+**Based on the findings of the analysis, the following recommendations are proposed:**
 
 -	Continue promoting female participation: The growth in female representation highlights the importance of maintaining initiatives that encourage equal opportunities for men and women in sports.
 -	Monitor participation across Olympic seasons: Future analyses should continue examining differences between Summer and Winter Games to understand changes in athlete participation and international representation.
